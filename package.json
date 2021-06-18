@@ -1,0 +1,24 @@
+{
+  "name": "10-teamProfileGenerator",
+  "version": "1.0.0",
+  "description": "Use this program to easily generate a web page that shows off profiles of your team members.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmonyok/teamProfileGenerator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mmonyok/teamProfileGenerator/issues"
+  },
+  "homepage": "https://github.com/mmonyok/teamProfileGenerator#readme",
+  "dependencies": {
+    "inquirer": "^8.1.1",
+    "jest": "^27.0.4"
+  }
+}
