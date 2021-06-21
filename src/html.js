@@ -3,10 +3,12 @@ const Employee = require('../lib/Employee');
 const Engineer = require('../lib/Engineer');
 const Intern = require('../lib/Intern');
 const Manager = require('../lib/Manager');
+let i;
 
-let employeeArray = {};
+let employeeString = ``;
 
 function generateHTML(data) {
+    console.log("generateHTML function is running");
     return `<!DOCTYPE html>
 <html lang="en">
 
@@ -25,23 +27,7 @@ function generateHTML(data) {
     </header>
     <main>
         <div class="row">
-            <div class="container col-2 cardContainer">
-                <div class="jumbotron">
-                    <h2 class="display-6">Melody Monyok</h2>
-                    <p class="lead">Manager</p>
-                </div>
-                <div>
-                    <div>
-                        <p>ID: 17</p>
-                    </div>
-                    <div>
-                        <p>Email: monyokwebdev@gmail.com</p>
-                    </div>
-                    <div>
-                        <p>Office Number: 203</p>
-                    </div>
-                </div>
-            </div>
+            ${data}
         </div>
     </main>
 </body>
@@ -49,14 +35,45 @@ function generateHTML(data) {
 </html>`;
 }
 
-/* function generateEmployee(data) {
-    for (let i = 0; i < data.length; i++) {
-        // let x = i + 1;
-        const employee = new Employee(data[i].name, data[i].id, data[i].email, 'Employee')
-        employeeArray.push(employee);
+function generateEmployee(data) {
+    console.log("generateEmployee function is running");
+    const newEmployee = new Employee(data[i].name, data[i].id, data[i].email, 'Employee')
+    console.log(newEmployee);
+    return `<div class="container col-2 cardContainer">
+                <div class="jumbotron">
+                    ${newEmployee.getName()}
+                    ${newEmployee.getRole()}
+                </div>
+                <div>
+                    <div>
+                        ${newEmployee.getId()}
+                    </div>
+                    <div>
+                        ${newEmployee.getEmail()}
+                    </div>
+                    <div>
+                        <p>Office Number: 203</p>
+                    </div>
+                </div>
+        </div>`
+}
+
+function createEmployees(data) {
+    for (i = 0; i < data.length; i++) {
+        let employeeTest;
+        console.log("createEmployees function is running");
+        if (i === 0) {
+            employeeTest = generateEmployee(data);
+        } else {
+            employeeTest = `\n      ${generateEmployee(data)}`;
+        }
+        employeeString += employeeTest;
     }
-} */
+    console.log("Employee String");
+    console.log(employeeString);
+    return generateHTML(employeeString);
+}
 
 module.exports = {
-    generateHTML,
+    createEmployees,
 };

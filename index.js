@@ -62,16 +62,14 @@ function askQuestions() {
         } else {
             console.log("Questions are done!");
             console.log(employeeData);
-            console.log(employeeData.length);
-            return employeeData;
+
+            const fileName = "./dist/index.html";
+            
+            fs.writeFile(
+                fileName,
+                html.createEmployees(employeeData),
+                err => err ? console.error(err) : console.log("Your team is ready!"));
         }
-    }).then(data => {
-        const fileName = "./dist/index.html";
-        
-        fs.writeFile(
-            fileName,
-            html.generateHTML(data),
-            err => err ? console.error(err) : console.log("Your team is ready!"));
     })};
 
 askQuestions();
