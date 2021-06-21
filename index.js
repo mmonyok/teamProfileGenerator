@@ -1,9 +1,8 @@
 const inquirer = require('inquirer');
-const html = require('./src/html');
+const generate = require('./src/genHTML');
+const create = require('./src/genEmployee');
 const fs = require('fs');
-const util = require('util');
-
-let employeeData = [];
+let employeeData = ``;
 
 const questions = [
     {
@@ -55,21 +54,22 @@ const questions = [
 ];
 
 function askQuestions() {
-    inquirer.prompt(questions).then((answers) => {
-        employeeData.push(answers);
+    inquirer.prompt(questions).then((answers) => {        
         if (answers.askAgain) {
+            employeeData += create.employee(answers);
             askQuestions();
         } else {
-            console.log("Questions are done!");
-            console.log(employeeData);
+            employeeData += create.employee(answers);
+            console.log("Questions are done; kittens are generating your team!");
 
             const fileName = "./dist/index.html";
-            
+
             fs.writeFile(
                 fileName,
-                html.createEmployees(employeeData),
+                generate.HTML(employeeData),
                 err => err ? console.error(err) : console.log("Your team is ready!"));
         }
-    })};
+    })
+};
 
 askQuestions();
