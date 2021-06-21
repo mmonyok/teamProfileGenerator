@@ -5,7 +5,6 @@ const util = require('util');
 
 let employeeData = [];
 
-// const writeFileAsync = util.promisify(fs.writeFile);
 const questions = [
     {
         message: "What is your employee's full Name?",
@@ -63,8 +62,16 @@ function askQuestions() {
         } else {
             console.log("Questions are done!");
             console.log(employeeData);
+            console.log(employeeData.length);
+            return employeeData;
         }
-    })
-}
+    }).then(data => {
+        const fileName = "./dist/index.html";
+        
+        fs.writeFile(
+            fileName,
+            html.generateHTML(data),
+            err => err ? console.error(err) : console.log("Your team is ready!"));
+    })};
 
 askQuestions();
