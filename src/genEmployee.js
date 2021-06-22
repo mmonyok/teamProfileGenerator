@@ -10,20 +10,21 @@ function employee(data) {
     console.log("Employee function is running.");
     switch (employeeType) {
         case 'Manager':
-            newEmployee = new Manager(data.name, data.id, data.email, data.role, data.office);
+            newEmployee = new Manager(data.mgrName, data.mgrID, data.mgrEmail, data.office);
             extraData = newEmployee.getOfficeNumber();
             break;
         case 'Engineer':
-            newEmployee = new Engineer(data.name, data.id, data.email, data.role, data.github);
+            newEmployee = new Engineer(data.name, data.id, data.email, data.github);
             extraData = newEmployee.getGithub();
             break;
         case 'Intern':
-            newEmployee = new Intern(data.name, data.id, data.email, data.role, data.school);
+            newEmployee = new Intern(data.name, data.id, data.email, data.school);
             extraData = newEmployee.getSchool();
             break;
     }
 
-    let currentEmployee = `         <div class="container col-2 cardContainer">
+    let currentEmployee = 
+`            <div class="container col-2 cardContainer">
                 <div class="jumbotron">
                     <h2 class="display-6">${newEmployee.getName()}</h2>
                     <p class="lead">${newEmployee.getRole()}</p>
@@ -41,12 +42,12 @@ function employee(data) {
                 </div>
             </div>`
 
-    if (data.askAgain) {
-        return `${currentEmployee}\n`;
-    } else {
+    if (data.role === 'Manager') {
         return currentEmployee;
-    }
-}
+    } else {
+        return `\n${currentEmployee}`;
+    };
+};
 
 module.exports = {
     employee,
