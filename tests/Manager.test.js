@@ -1,12 +1,12 @@
 const Manager = require('../lib/Manager');
 
 describe("Manager", () => {
-    describe("test1", () => {
-        it("should do something, but I'm not sure what yet.",
+    describe("officeNumber", () => {
+        it("should return an object containing an 'officeNumber' property when called with the 'new' keyword.",
         () => {
             const obj = new Manager();
 
-            expect().toEqual();
+            expect('officeNumber' in obj).toEqual(true);
         });
     });
 });

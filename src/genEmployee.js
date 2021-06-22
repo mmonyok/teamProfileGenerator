@@ -25,15 +25,15 @@ function employee(data) {
 
     let currentEmployee = `         <div class="container col-2 cardContainer">
                 <div class="jumbotron">
-                    ${newEmployee.getName()}
-                    ${newEmployee.getRole()}
+                    <h2 class="display-6">${newEmployee.getName()}</h2>
+                    <p class="lead">${newEmployee.getRole()}</p>
                 </div>
                 <div>
                     <div>
-                        ${newEmployee.getId()}
+                        <p>ID: ${newEmployee.getId()}</p>
                     </div>
                     <div>
-                        ${newEmployee.getEmail()}
+                        <p>Email: ${newEmployee.getEmail()}</p>
                     </div>
                     <div>
                         ${extraData}
