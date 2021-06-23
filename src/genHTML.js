@@ -1,3 +1,4 @@
+// This function generates the static HTML and then inputs the temporal literal where each employee temporal literal was pushed.
 function HTML(data) {
     return `<!DOCTYPE html>
 <html lang="en">
@@ -14,7 +15,7 @@ function HTML(data) {
 
 <body>
     <header class="jumbotron">
-        <h1 class="text-center">My Team</h1>
+        <h1 class="text-center"><i class="fas fa-users"></i> My Team</h1>
     </header>
     <main>
         <div class="row">
