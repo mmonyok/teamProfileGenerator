@@ -1,0 +1,35 @@
+:root {
+    --darkest: #C86B85;
+    --darker: #E6A4B4;
+    --lighter: #F3D7CA;
+    --lightest: #F5EEE6;
+    --border: #212529;
+}
+
+body {
+    background-color: var(--lightest);
+}
+
+header {
+    background-color: var(--darkest) !important;
+    border-radius: 0px !important;
+    border-bottom: solid 1px var(--border);
+}
+
+.card {
+    background-color: var(--darker);
+    border-radius: 10px !important; 
+    border-bottom-left-radius: 0px !important; border-bottom-right-radius: 0px !important;
+}
+
+.cardContainer {
+    background-color: var(--lighter);
+    border-color: var(--border) !important;
+    border-radius: 10px;
+    padding: 0;
+}
+
+.dataBox {
+    background-color: var(--lightest);
+    border-color: var(--border) !important;
+}
