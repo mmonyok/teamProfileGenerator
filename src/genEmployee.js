@@ -7,7 +7,6 @@ function employee(data) {
     let extraData;
     let employeeType = data.role;
 
-    console.log("Employee function is running.");
     switch (employeeType) {
         case 'Manager':
             newEmployee = new Manager(data.mgrName, data.mgrID, data.mgrEmail, data.office);
@@ -24,19 +23,19 @@ function employee(data) {
     }
 
     let currentEmployee = 
-`            <div class="container col-2 cardContainer">
-                <div class="jumbotron">
+`            <div class="container col-2 border cardContainer">
+                <div class="jumbotron card">
                     <h2 class="display-6">${newEmployee.getName()}</h2>
                     <p class="lead">${newEmployee.getRole()}</p>
                 </div>
-                <div>
-                    <div>
-                        <p>ID: ${newEmployee.getId()}</p>
+                <div style="margin: 15px;">
+                    <div class="border dataBox">
+                        <p class=" m-2"><i class="far fa-id-badge"></i> ID: ${newEmployee.getId()}</p>
                     </div>
-                    <div>
-                        <p>Email: ${newEmployee.getEmail()}</p>
+                    <div class="border my-1 dataBox">
+                        <p class=" m-2"><i class="far fa-envelope"></i> Email: <a href="mailto:${newEmployee.getEmail()}">${newEmployee.getEmail()}</a></p>
                     </div>
-                    <div>
+                    <div class="border dataBox">
                         ${extraData}
                     </div>
                 </div>

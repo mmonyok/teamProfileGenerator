@@ -1,7 +1,3 @@
-// Remove 'role' from classes, and update getRole() method.
-// Change prompts to ask about manager info first.
-// Remove getOfficeNumber() method.
-
 const inquirer = require('inquirer');
 const generate = require('./src/genHTML');
 const create = require('./src/genEmployee');
@@ -24,6 +20,12 @@ const mgrQuestionsArray = [
     {
         message: "What is the team manager's office number?",
         name: 'office',
+    },
+    {
+        type: 'list',
+        message: "Would you like to continue building your team or stop?",
+        choices: ['Continue', 'Stop'],
+        name: 'conStop'
     },
 ];
 
@@ -90,7 +92,16 @@ function mgrQuestions() {
     inquirer.prompt(mgrQuestionsArray).then((res) => {
         res.role = 'Manager';
         employeeData += create.employee(res);
-        empQuestions();
+        if (res.conStop === 'Continue') {
+            empQuestions();
+        } else {
+            const fileName = "./dist/index.html";
+
+            fs.writeFile(
+                fileName,
+                generate.HTML(employeeData),
+                err => err ? console.error(err) : console.log("Your team is ready!"));
+        }
     })
 };
 

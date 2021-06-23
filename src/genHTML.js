@@ -1,5 +1,4 @@
 function HTML(data) {
-    console.log("HTML function is running.");
     return `<!DOCTYPE html>
 <html lang="en">
 
@@ -7,6 +6,7 @@ function HTML(data) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/2fc392b23c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="./style.css">
     <title>Team Profile</title>
@@ -14,7 +14,7 @@ function HTML(data) {
 
 <body>
     <header class="jumbotron">
-        <h1>My Team</h1>
+        <h1 class="text-center">My Team</h1>
     </header>
     <main>
         <div class="row">
